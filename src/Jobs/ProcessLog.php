@@ -1,6 +1,6 @@
 <?php
 
-namespace litermi\elasticlog\Jobs;
+namespace Cirelramostrabajo\Plogger\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
@@ -91,7 +91,7 @@ class ProcessLog implements ShouldQueue
             ];
 
             try {
-                $response = $client->post($elasticURL, [
+                $response = $client->postAsync($elasticURL, [
                     'headers' => $headers,
                     RequestOptions::JSON => $payload
                 ]);

@@ -1,7 +1,7 @@
 <?php
-namespace litermi\elasticlog\Services\Logs;
+namespace Cirelramostrabajo\Plogger\Services\Logs;
 use Monolog\Logger;
-class LogMonolog
+class SendLogTcpMonolog
 {
     /**
      * Create a custom Monolog instance.

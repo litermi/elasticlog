@@ -1,6 +1,6 @@
 <?php
 
-namespace litermi\elasticlog\Services\Logs;
+namespace Cirelramostrabajo\Plogger\Services\Logs;
 
 use litermi\elasticlog\Events\Logs\LogMonologEvent;
 use Illuminate\Support\Facades\Cache;
@@ -8,7 +8,7 @@ use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 use GuzzleHttp\Client as ClientHttp;
 use GuzzleHttp\RequestOptions;
-use litermi\elasticlog\Jobs\ProcessLog;
+use Cirelramostrabajo\Plogger\Jobs\ProcessLog;
 
 
 
@@ -22,7 +22,7 @@ class LogHandler extends AbstractProcessingHandler
     {
 
         try {
-            ProcessLog::dispatch($record);
+            ProcessLog::dispatch($record)->onConnection('sync');
         } catch (\Exception $e) {
 
         }

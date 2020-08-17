@@ -1,5 +1,6 @@
 <?php
-namespace litermi\elasticlog\Services\Logs;
+namespace Cirelramostrabajo\Plogger\Services\Logs;
+
 class LogProcessor
 {
     public function __invoke(array $record)
