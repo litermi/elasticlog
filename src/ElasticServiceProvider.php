@@ -1,6 +1,6 @@
 <?php
 
-namespace Cirelramostrabajo\Plogger;
+namespace Litermi\Elasticlog;
 use Illuminate\Support\ServiceProvider;
 
 class ElasticServiceProvider extends ServiceProvider

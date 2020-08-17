@@ -1,5 +1,5 @@
 <?php
-namespace Cirelramostrabajo\Plogger\Listeners;
+namespace Litermi\Elasticlog\Listeners;
 use litermi\elasticlog\Events\Logs\LogMonologEvent;
 use App\AuxModels\ElasticLog;
 use Illuminate\Contracts\Queue\ShouldQueue;

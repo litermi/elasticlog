@@ -1,5 +1,5 @@
 <?php
-namespace Cirelramostrabajo\Plogger\Services\Logs;
+namespace Litermi\Elasticlog\Services\Logs;
 use Monolog\Formatter\NormalizerFormatter;
 use Illuminate\Support\Str;
 class LogFormatter extends NormalizerFormatter

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cirelramostrabajo\Plogger\Services\Logs;
+namespace Litermi\Elasticlog\Services\Logs;
 
 use litermi\elasticlog\Events\Logs\LogMonologEvent;
 use Illuminate\Support\Facades\Cache;
@@ -8,7 +8,7 @@ use Monolog\Logger;
 use Monolog\Handler\AbstractProcessingHandler;
 use GuzzleHttp\Client as ClientHttp;
 use GuzzleHttp\RequestOptions;
-use Cirelramostrabajo\Plogger\Jobs\ProcessLog;
+use Litermi\Elasticlog\Jobs\ProcessLog;
 
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Cirelramostrabajo\Plogger\Jobs;
+namespace Litermi\Elasticlog\Jobs;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;

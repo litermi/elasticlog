@@ -1,6 +1,6 @@
 <?php
 
-namespace Cirelramostrabajo\Plogger\Services\Logs;
+namespace Litermi\Elasticlog\Services\Logs;
 
 use Monolog\Handler\AbstractSyslogHandler;
 use Monolog\Logger;

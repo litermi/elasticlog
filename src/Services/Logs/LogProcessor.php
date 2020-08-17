@@ -1,5 +1,5 @@
 <?php
-namespace Cirelramostrabajo\Plogger\Services\Logs;
+namespace Litermi\Elasticlog\Services\Logs;
 
 class LogProcessor
 {

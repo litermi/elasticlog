@@ -23,14 +23,14 @@ composer require litermi/elasticlog
 add row in config/app.php
 
 ```php
- \Cirelramostrabajo\Plogger\ElasticServiceProvider::class
+ \Litermi\Elasticlog\ElasticServiceProvider::class
 ```
 
 
 publish config
 
 ```sh
-php artisan vendor:publish --provider="Cirelramostrabajo\Plogger\Providers\ElasticServiceProvider"
+php artisan vendor:publish --provider="Litermi\Elasticlog\Providers\ElasticServiceProvider"
 ```
 
 
@@ -41,11 +41,11 @@ return [
         'tcp-logger'   => [
             'name'   => 'elastic',
             'driver' => 'custom',
-            'via'    => \Cirelramostrabajo\Plogger\Services\Logs\SendLogTcpMonolog::class,
+            'via'    => \Litermi\Elasticlog\Services\Logs\SendLogTcpMonolog::class,
         ],
         'udp-logger'     => [
             'driver'  => 'monolog',
-            'handler' => \Cirelramostrabajo\Plogger\Services\Logs\SendLogUdpJsonHandler::class,
+            'handler' => \Litermi\Elasticlog\Services\Logs\SendLogUdpJsonHandler::class,
         ],
 ];
 ```

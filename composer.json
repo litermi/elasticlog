@@ -1,21 +1,21 @@
 {
-  "name": "cirelramostrabajo/plogger",
+  "name": "litermi/elasticlog",
   "description": "A simple hello world composer package",
   "type": "library",
   "license": "MIT",
   "authors": [
     {
-      "name": "Cirel Ramos",
-      "email": "cirelramos@gmail.com"
+      "name": "litermi",
+      "email": "contact@litermi.com"
     }
   ],
   "support": {
-    "issues": "https://github.com/cirelramostrabajo/plogger/issues",
-    "source": "https://github.com/cirelramostrabajo/plogger"
+    "issues": "https://github.com/litermi/elasticlog/issues",
+    "source": "https://github.com/litermi/elasticlog"
   },
   "minimum-stability": "stable",
   "autoload": {
-    "psr-4": {"Cirelramostrabajo\\Plogger\\": "src/"}
+    "psr-4": {"Litermi\\Elasticlog\\": "src/"}
   },
   "require": {}
 }
