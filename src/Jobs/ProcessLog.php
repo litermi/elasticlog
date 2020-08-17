@@ -39,7 +39,7 @@ class ProcessLog implements ShouldQueue
         $level = $formated['level'];
         $token =  $formated['token'];
 
-        $this->sendToElastic('SQS', $message, $token);
+        $this->sendToElastic('SQS',$message,$token);
 
         //release for more than 2 attempts
         if ($this->attempts() > 2) {
@@ -49,10 +49,10 @@ class ProcessLog implements ShouldQueue
 
 
 
-    public static function sendToElastic($type, $tag, $request)
+    public static function sendToElastic($type,$tag,$request)
     {
         //check if defined configuration for elasticsearch
-        $elastic_server  = config('elastic.elastic_url') . ':' . config('elastic.elastic_port');
+        $elastic_server  = config('elastic.elastic_url').':'. config('elastic.elastic_port');
         if (isset($elastic_server)) {
             //get configuration from env
             $env = config('app.env');
@@ -70,11 +70,11 @@ class ProcessLog implements ShouldQueue
 
 
             //create access token
-            $base = config('elastic.elastic_user') . ':' . config('elastic.elastic_pass');
-            $token = 'Basic ' . Base64_encode($base);
+            $base = config('elastic.elastic_user').':'.config('elastic.elastic_pass');
+            $token ='Basic '. Base64_encode($base);
 
             //create url for index
-            $elasticURL = $elastic_server . '/' . strtolower(config('app.name')) . '-' . $env . '-log-' . $date . '/log/' . time();
+            $elasticURL = $elastic_server . '/rapi-' . $env . '-log-' . $date . '/log/' . time(). rand(99,999);
             $headers = [
                 'Content-type' => 'application/json',
                 'Accept' => 'application/json',
@@ -83,12 +83,12 @@ class ProcessLog implements ShouldQueue
             //Disable SSL verification for elastic server
             $client = new ClientHttp(array('curl' => array(CURLOPT_SSL_VERIFYPEER => false,),));
 
-            $payload = [
-                'date' => $date_time,
-                'type' => $type,
-                'log' => $tag,
-                'tk' => $request
-            ];
+            $payload = ['date' => $date_time,
+                        'type' => $type,
+                        'log' => $tag,
+                        'tk' => $request];
+
+
 
             try {
                 $response = $client->postAsync($elasticURL, [
@@ -96,7 +96,7 @@ class ProcessLog implements ShouldQueue
                     RequestOptions::JSON => $payload
                 ]);
             } catch (\Exception $e) {
-                // no actions for exception
+                //error
             }
         }
     }
