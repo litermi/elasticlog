@@ -22,7 +22,7 @@ class LogHandler extends AbstractProcessingHandler
     {
 
         try {
-            ProcessLog::dispatch($record)->onConnection('sync');
+            ProcessLog::dispatch($record);
         } catch (\Exception $e) {
 
         }

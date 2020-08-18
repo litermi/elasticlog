@@ -91,7 +91,7 @@ class ProcessLog implements ShouldQueue
 
 
             try {
-                $response = $client->postAsync($elasticURL, [
+                $response = $client->post($elasticURL, [
                     'headers' => $headers,
                     RequestOptions::JSON => $payload
                 ]);
