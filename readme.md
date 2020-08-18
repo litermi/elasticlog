@@ -64,4 +64,4 @@ LOG_CHANNEL=udp-logger
 
 ## License
 
-litermi elastic is released under the MIT Licence. See the bundled [LICENSE](https://github.com/cirelramostrabajo/plogger/blob/master/LICENSE.md) file for details.
+litermi elastic is released under the MIT Licence. See the bundled [LICENSE](https://github.com/litermi/elasticlog/blob/master/LICENSE.md) file for details.
