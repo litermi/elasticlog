@@ -62,6 +62,11 @@ or
 LOG_CHANNEL=udp-logger
 ```
 
+### UPDATE PACKAGE IN PROJECTS
+```bash
+composer update "litermi/elasticlog"
+```
+
 ## License
 
 litermi elastic is released under the MIT Licence. See the bundled [LICENSE](https://github.com/litermi/elasticlog/blob/master/LICENSE.md) file for details.
