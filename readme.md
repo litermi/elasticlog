@@ -47,6 +47,14 @@ return [
             'driver'  => 'monolog',
             'handler' => \Litermi\Elasticlog\Services\Logs\SendLogUdpJsonHandler::class,
         ],
+        'stderr' => [
+            'driver'    => 'monolog',
+            'handler'   => \Monolog\Handler\StreamHandler::class,
+            'formatter' => env('LOG_STDERR_FORMATTER'),
+            'with'      => [
+                'stream' => 'php://stderr',
+            ],
+        ],
 ];
 ```
 

@@ -2,6 +2,7 @@
 
 namespace Litermi\Elasticlog\Jobs;
 
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -9,6 +10,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use GuzzleHttp\Client as ClientHttp;
 use GuzzleHttp\RequestOptions;
+use Illuminate\Support\Facades\Log;
 
 class ProcessLog implements ShouldQueue
 {
@@ -71,10 +73,12 @@ class ProcessLog implements ShouldQueue
 
             //create access token
             $base = config('elastic.elastic_user').':'.config('elastic.elastic_pass');
+            $aliasProject = config('elastic.elastic_alias_project');
             $token ='Basic '. Base64_encode($base);
+            $time = time(). rand(99,999);
 
             //create url for index
-            $elasticURL = $elastic_server . '/rapi-' . $env . '-log-' . $date . '/log/' . time(). rand(99,999);
+            $elasticURL = "{$elastic_server}/{$aliasProject}-{$env}-log-{$date}/log/{$time}";
             $headers = [
                 'Content-type' => 'application/json',
                 'Accept' => 'application/json',
@@ -95,8 +99,9 @@ class ProcessLog implements ShouldQueue
                     'headers' => $headers,
                     RequestOptions::JSON => $payload
                 ]);
-            } catch (\Exception $e) {
-                //error
+            } catch (\Exception $exception) {
+                Log::channel('stderr')->info($exception->getMessage());
+                throw new Exception($exception->getMessage());
             }
         }
     }
