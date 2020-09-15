@@ -101,7 +101,7 @@ class ProcessLog implements ShouldQueue
                 ]);
             } catch (\Exception $exception) {
                 Log::channel('stderr')->info($exception->getMessage());
-                throw new Exception($exception->getMessage());
+//                throw new Exception($exception->getMessage());
             }
         }
     }
