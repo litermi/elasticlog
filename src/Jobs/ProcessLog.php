@@ -99,9 +99,10 @@ class ProcessLog implements ShouldQueue
                     'headers' => $headers,
                     RequestOptions::JSON => $payload
                 ]);
+                Log::channel('stderr')->info('log sent');
             } catch (\Exception $exception) {
                 Log::channel('stderr')->info($exception->getMessage());
-//                throw new Exception($exception->getMessage());
+                throw new Exception($exception->getMessage());
             }
         }
     }
