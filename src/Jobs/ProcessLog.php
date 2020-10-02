@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use GuzzleHttp\Client as ClientHttp;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Cache;
 
 class ProcessLog implements ShouldQueue
 {
@@ -102,7 +103,13 @@ class ProcessLog implements ShouldQueue
                 Log::channel('stderr')->info('log sent');
             } catch (\Exception $exception) {
                 Log::channel('stderr')->info($exception->getMessage());
-                throw new Exception($exception->getMessage());
+
+                $nameCache = 'cacheErrorElastic';
+                $cache     = Cache::get($nameCache);
+                if ($cache === null) {
+                    Cache::put($nameCache, 'error', 30);
+                    throw new Exception($exception->getMessage());
+                }
             }
         }
     }
