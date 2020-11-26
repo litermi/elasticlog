@@ -13,7 +13,8 @@
     "issues": "https://github.com/litermi/elasticlog/issues",
     "source": "https://github.com/litermi/elasticlog"
   },
-  "minimum-stability": "stable",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "autoload": {
     "psr-4": {"Litermi\\Elasticlog\\": "src/"}
   },
