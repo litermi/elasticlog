@@ -17,7 +17,7 @@ It uses the new [Laravel custom log channel](https://laravel.com/docs/master/log
 Install via [composer](https://getcomposer.org/doc/00-intro.md)
 
 ```sh
-composer require litermi/elasticlog
+composer require litermi/elasticlog:dev-master
 ```
 
 add row in config/app.php
