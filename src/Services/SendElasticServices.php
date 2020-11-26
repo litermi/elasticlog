@@ -31,7 +31,7 @@ class SendElasticServices
 
                 //create access token
                 $base         = env('ELASTIC_USER') . ':' . env('ELASTIC_PASS');
-                $aliasProject = env('ALIAS_PROJECT', 'RAPI');
+                $aliasProject = env('ALIAS_PROJECT', 'rapi');
                 $token        = 'Basic ' . Base64_encode($base);
                 $time         = time() . rand(99, 999);
 
