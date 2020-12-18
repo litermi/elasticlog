@@ -44,6 +44,7 @@ class SendElasticServices
                 ];
                 //Disable SSL verification for elastic server
                 $client  = new ClientHttp([ 'curl' => [ CURLOPT_SSL_VERIFYPEER => false, ], ]);
+                $tag = str_replace("\\", "", $tag);
                 $payload = [
                     'date' => $date_time,
                     'type' => $type,
