@@ -17,6 +17,11 @@ class SendElasticServices
             if (isset($elastic_server)) {
                 //get configuration from env
                 $env = env('APP_ENV');
+
+                if($env === 'prod'){
+                   $env = 'master';
+                }
+
                 //get elastic timezone
                 $elastic_tz = env('ELASTIC_TIMEZONE');
 
